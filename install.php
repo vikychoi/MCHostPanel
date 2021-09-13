@@ -1,7 +1,7 @@
 <?php
 require_once 'inc/lib.php';
 
-if (!empty($_POST['user'])) {
+if (!is_file(".installed") && !empty($_POST['user'])) {
 	session_start();
 	user_add($_POST['user'], $_POST['pass'], 'admin', $_POST['dir'], $_POST['ram'], $_POST['port']);
 	file_put_contents(".installed", "");
